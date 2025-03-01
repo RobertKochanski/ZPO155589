@@ -1,10 +1,10 @@
 # ========= Zadanie 9 =============
 class FlyingVehicle:
-    def move(self):
+    def move(self) -> str:
         return "I fly"
 
 class WaterVehicle:
-    def move(self):
+    def move(self) -> str:
         return "I sail"
 
 class AmphibiousVehicle:
@@ -13,7 +13,7 @@ class AmphibiousVehicle:
     def __init__(self, mode:bool):
         self.mode = mode
 
-    def move(self):
+    def move(self) -> str:
         if self.mode == False:
             return "I fly"
         elif self.mode:

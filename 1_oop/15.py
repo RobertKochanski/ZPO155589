@@ -1,7 +1,9 @@
 # ========= Zadanie 15 =============
 class GameCharacter:
     default_health:int = 100
-    health = default_health
+
+    def __init__(self):
+        self.health = self.default_health
 
     def restore_health(self):
         self.health = GameCharacter.default_health
@@ -20,3 +22,5 @@ print(f"Default HP (after change): {GameCharacter.default_health}")
 character1.restore_health()
 print(f"Character 1 (restored): {character1.health}")
 print(f"Character 2: {character2.health}")
+character3 = GameCharacter()
+print(f"Character 3: {character3.health}")

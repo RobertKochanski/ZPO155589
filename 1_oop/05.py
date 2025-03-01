@@ -9,7 +9,7 @@ class Car:
     model:str
     year:int
 
-    def is_classic(self):
+    def is_classic(self) -> bool:
         return datetime.now().year - self.year > 25
 
 car = Car("Fiat", "Punto", 1999)

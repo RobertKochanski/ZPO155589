@@ -6,26 +6,26 @@ class PizzaBuilder:
     def __init__(self):
         self.pizza = Pizza()
 
-    def addCheese(self):
+    def addCheese(self) -> object:
         self.pizza.ingredients.append("Cheese")
         return self
 
-    def addSalami(self):
+    def addSalami(self) -> object:
         self.pizza.ingredients.append("Salami")
         return self
 
-    def addMushroom(self):
+    def addMushroom(self) -> object:
         self.pizza.ingredients.append("Mushroom")
         return self
 
-    def addOnion(self):
+    def addOnion(self) -> object:
         self.pizza.ingredients.append("Onion")
         return self
 
     def resetIngredients(self) -> None:
         self.pizza.ingredients.clear()
 
-    def show_current_ingredients(self):
+    def show_current_ingredients(self) -> object:
         print(self.pizza.ingredients)
         return self
 
@@ -39,7 +39,7 @@ class NotPizzaBuilder:
     def __init__(self):
         self.pizza = Pizza()
 
-    def addPineapple(self):
+    def addPineapple(self) -> object:
         self.pizza.ingredients.append("Pineapple")
         return self
 
@@ -54,19 +54,19 @@ class VegePizzaBuilder:
     def __init__(self):
         self.pizza = Pizza()
 
-    def addTofu(self):
+    def addTofu(self) -> object:
         self.pizza.ingredients.append("Tofu")
         return self
-    def addVegeCheese(self):
+    def addVegeCheese(self) -> object:
         self.pizza.ingredients.append("VegeCheese")
         return self
-    def addMushrooms(self):
+    def addMushrooms(self) -> object:
         self.pizza.ingredients.append("Mushrooms")
         return self
-    def addCorn(self):
+    def addCorn(self) -> object:
         self.pizza.ingredients.append("Corn")
         return self
-    def addPeppers(self):
+    def addPeppers(self) -> object:
         self.pizza.ingredients.append("Peppers")
         return self
 

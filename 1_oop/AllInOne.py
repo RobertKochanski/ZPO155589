@@ -96,7 +96,7 @@ class Car:
     model:str
     year:int
 
-    def is_classic(self):
+    def is_classic(self) -> bool:
         return datetime.now().year - self.year > 25
 
 # car = Car("Fiat", "Punto", 1999)
@@ -105,15 +105,15 @@ class Car:
 
 # ========= Zadanie 6 =============
 class ElectricVehicle:
-    def fuel_type(self):
+    def fuel_type(self) -> str:
         return "electric"
 
 class GasolineVehicle:
-    def fuel_type(self):
+    def fuel_type(self) -> str:
         return "gasoline"
 
 class HybridCar(ElectricVehicle, GasolineVehicle):
-    def fuel_type(self):
+    def fuel_type(self) -> str:
         return "hybrid"
 
 # print(ElectricVehicle().fuel_type())
@@ -122,15 +122,15 @@ class HybridCar(ElectricVehicle, GasolineVehicle):
 
 # ========= Zadanie 7 =============
 class Person:
-    def introduce(self):
+    def introduce(self) -> str:
         return "I am a person"
 
 class Worker(Person):
-    def introduce(self):
+    def introduce(self) -> str:
         return "I am a worker"
 
 class Student(Person):
-    def introduce(self):
+    def introduce(self) -> str:
         return "I am a student"
 
 class WorkingStudent(Worker, Student):
@@ -140,17 +140,17 @@ class WorkingStudent(Worker, Student):
 
 # ========= Zadanie 8 =============
 class Animal:
-    def make_sound(self):
+    def make_sound(self) -> str:
         return "Some sound"
 
 class Pet:
-    def is_domestic(self):
+    def is_domestic(self) -> bool:
         return True
 
 class Dog(Animal, Pet):
-    def make_sound(self):
+    def make_sound(self) -> str:
         return "Hau"
-    def is_domestic(self):
+    def is_domestic(self) -> bool:
         return True
 
 # print(Animal().make_sound())
@@ -159,11 +159,11 @@ class Dog(Animal, Pet):
 
 # ========= Zadanie 9 =============
 class FlyingVehicle:
-    def move(self):
+    def move(self) -> str:
         return "I fly"
 
 class WaterVehicle:
-    def move(self):
+    def move(self) -> str:
         return "I sail"
 
 class AmphibiousVehicle:
@@ -172,7 +172,7 @@ class AmphibiousVehicle:
     def __init__(self, mode:bool):
         self.mode = mode
 
-    def move(self):
+    def move(self) -> str:
         if self.mode == False:
             return "I fly"
         elif self.mode:
@@ -257,8 +257,11 @@ class MathOperations:
         return a * b
 
     @classmethod
-    def identity_matrix(cls, size:int):
-        return [[0]*size for i in range(size)]
+    def identity_matrix(cls, size:int) -> []:
+        matrix = [[0]*size for i in range(size)]
+        for j in range(size):
+            matrix[j][j] = 1
+        return matrix
 
 # print(MathOperations.add(2, 3))
 # print(MathOperations.multiply(2, 3))
@@ -267,7 +270,9 @@ class MathOperations:
 # ========= Zadanie 15 =============
 class GameCharacter:
     default_health:int = 100
-    health = default_health
+
+    def __init__(self):
+        self.health = self.default_health
 
     def restore_health(self):
         self.health = GameCharacter.default_health
@@ -286,6 +291,8 @@ class GameCharacter:
 # character1.restore_health()
 # print(f"Character 1 (restored): {character1.health}")
 # print(f"Character 2: {character2.health}")
+# character3 = GameCharacter()
+# print(f"Character 3: {character3.health}")
 
 # ========= Zadanie 16 =============
 class Shape(ABC):
