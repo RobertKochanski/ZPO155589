@@ -1,3 +1,5 @@
+import numpy as np
+
 # ========= Zadanie 14 =============
 class MathOperations:
     @staticmethod
@@ -10,10 +12,11 @@ class MathOperations:
 
     @classmethod
     def identity_matrix(cls, size:int) -> []:
-        matrix = [[0]*size for i in range(size)]
-        for j in range(size):
-            matrix[j][j] = 1
-        return matrix
+        return np.eye(size)
+        # matrix = [[0]*size for i in range(size)]
+        # for j in range(size):
+        #     matrix[j][j] = 1
+        # return matrix
 
 print(MathOperations.add(2, 3))
 print(MathOperations.multiply(2, 3))

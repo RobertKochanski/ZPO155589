@@ -1,78 +1,67 @@
+from abc import ABC, abstractmethod
+from typing import Self
+
+
 class Pizza:
     def __init__(self):
         self.ingredients = []
 
-class PizzaBuilder:
+
+class PizzaBuilder():
     def __init__(self):
         self.pizza = Pizza()
 
-    def addCheese(self) -> object:
+    def addCheese(self) -> Self:
         self.pizza.ingredients.append("Cheese")
         return self
 
-    def addSalami(self) -> object:
+    def addSalami(self) -> Self:
         self.pizza.ingredients.append("Salami")
         return self
 
-    def addMushroom(self) -> object:
+    def addMushroom(self) -> Self:
         self.pizza.ingredients.append("Mushroom")
         return self
 
-    def addOnion(self) -> object:
+    def addOnion(self) -> Self:
         self.pizza.ingredients.append("Onion")
+        return self
+
+    def addCorn(self) -> Self:
+        self.pizza.ingredients.append("Corn")
+        return self
+
+    def addPeppers(self) -> Self:
+        self.pizza.ingredients.append("Peppers")
+        return self
+
+    def addPineapple(self) -> Self:
+        self.pizza.ingredients.append("Pineapple")
         return self
 
     def resetIngredients(self) -> None:
         self.pizza.ingredients.clear()
 
-    def show_current_ingredients(self) -> object:
+    def show_current_ingredients(self) -> Self:
         print(self.pizza.ingredients)
         return self
 
     def build(self) -> Pizza:
         return self.pizza
 
-pizza = PizzaBuilder().addSalami().addOnion().addCheese().show_current_ingredients().build()
-print(pizza.ingredients)
+class PizzaDirector:
+    def createPizza(self) -> Pizza:
+        return PizzaBuilder().addCheese().addSalami().build()
 
-class NotPizzaBuilder:
-    def __init__(self):
-        self.pizza = Pizza()
+    def createVegePizza(self) -> Pizza:
+        return PizzaBuilder().addCheese().addCorn().addOnion().build()
 
-    def addPineapple(self) -> object:
-        self.pizza.ingredients.append("Pineapple")
-        return self
-
-    def build(self) -> Pizza:
-        return self.pizza
+    def createMeatPizza(self) -> Pizza:
+        return PizzaBuilder().addCheese().addSalami().addPeppers().build()
 
 
-notPizza = NotPizzaBuilder().addPineapple().build()
-print(notPizza.ingredients)
+director = PizzaDirector()
+Pepperoni = director.createPizza()
 
-class VegePizzaBuilder:
-    def __init__(self):
-        self.pizza = Pizza()
+print(Pepperoni.ingredients)
 
-    def addTofu(self) -> object:
-        self.pizza.ingredients.append("Tofu")
-        return self
-    def addVegeCheese(self) -> object:
-        self.pizza.ingredients.append("VegeCheese")
-        return self
-    def addMushrooms(self) -> object:
-        self.pizza.ingredients.append("Mushrooms")
-        return self
-    def addCorn(self) -> object:
-        self.pizza.ingredients.append("Corn")
-        return self
-    def addPeppers(self) -> object:
-        self.pizza.ingredients.append("Peppers")
-        return self
-
-    def build(self) -> Pizza:
-        return self.pizza
-
-
-vegePizza = VegePizzaBuilder().addVegeCheese().addCorn().addTofu().addPeppers().build()
-print(vegePizza.ingredients)
