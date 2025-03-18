@@ -29,7 +29,7 @@ class DatabaseConnection:
         self._port = port
         self._user = user
         self._password = password
-        self._initialized = True
+        self._configured = True
 
 
 db1 = DatabaseConnection(host="127.0.0.1")
