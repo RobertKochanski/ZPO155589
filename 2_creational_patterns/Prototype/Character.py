@@ -10,7 +10,7 @@ class Character_type(ABC):
 
 class Mage(Character_type):
     def __init__(self):
-        self.class_type = "Warrior"
+        self.class_type = "Mage"
 
     def what_type(self) -> str:
         return "Im a mage"
