@@ -1,6 +1,8 @@
 import time
 from abc import ABC, abstractmethod
 import random
+from random import choice
+
 
 class AttackStrategy(ABC):
     @abstractmethod
@@ -60,21 +62,10 @@ class Character:
         x = 1
 
         while self.health > 0 and opponent.health > 0:
-            rand_strat = random.randint(1, 3)
-            if rand_strat == 1:
-                self.strategy = AggressiveAttack()
-            if rand_strat == 2:
-                self.strategy = DefensiveAttack()
-            else:
-                self.strategy = RandomAttack()
+            strategies = [AggressiveAttack(), DefensiveAttack(), RandomAttack()]
 
-            opponent_strat = random.randint(1, 3)
-            if opponent_strat == 1:
-                opponent.strategy = AggressiveAttack()
-            if opponent_strat == 2:
-                opponent.strategy = DefensiveAttack()
-            else:
-                opponent.strategy = RandomAttack()
+            self.strategy = choice(strategies)
+            opponent.strategy = choice(strategies)
 
             print(f"Turn {x}")
             time.sleep(1)
