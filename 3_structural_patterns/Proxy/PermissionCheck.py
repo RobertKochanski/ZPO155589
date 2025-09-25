@@ -17,10 +17,10 @@ class User(ABC):
 
 class CurrentUser(User):
     def GET(self) -> None:
-        print("User used: GET")
+        print("Users used: GET")
 
     def POST(self) -> None:
-        print("User used: POST")
+        print("Users used: POST")
 
 class CurrentUserProxy(User):
     currentUser: User
@@ -36,7 +36,7 @@ class CurrentUserProxy(User):
         if self.currentUser.permission:
             self.currentUser.POST()
         else:
-            print("User has no permission")
+            print("Users has no permission")
 
 
 currentUser = CurrentUser()

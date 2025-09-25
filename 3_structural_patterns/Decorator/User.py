@@ -4,7 +4,7 @@ from typing import Any
 
 class User:
     def __init__(self):
-        self.roles = ["User"]
+        self.roles = ["Users"]
 
     def showRoles(self) -> list[str]:
         return self.roles.copy() # copy aby uniknąć modyfikacji klasy bazowej
